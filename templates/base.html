@@ -29,7 +29,7 @@
         <div class="row">
             <div class="col-md-4 col-sm-4 col-xs-4">
                 <div class="logo">
-                    <a href="/">
+                    <a href="{% url 'home' %}">
                         <img src="{% static 'logo.svg' %}"
                              alt="telecircuit logo">
                     </a>
@@ -38,8 +38,8 @@
             <div class="col-md-8 col-sm-8 col-xs-8">
                 <div class="header-menu">
                     <ul>
-                        <li><a class="scroll" href="/">Главная</a></li>
-                        <li><a class="scroll" href="#">Платы</a></li>
+                        <li><a class="scroll" href="{% url 'home' %}">Главная</a></li>
+                        <li><a class="scroll" href="{% url 'circuits' %}">Платы</a></li>
                         <li><a class="scroll" href="#brands">Бренды</a></li>
                         <li><a class="scroll" href="#contacts">Контакты</a>
                         </li>
