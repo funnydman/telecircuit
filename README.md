@@ -1,4 +1,3 @@
-[![Build Status](https://travis-ci.org/FUNNYDMAN/telecircuit.svg?branch=develop)](https://travis-ci.org/FUNNYDMAN/telecircuit)
 # TELECIRCUIT
 is a website which provide opportunity to buy circuits and components for tvs. Telecircuit contains much brands such as Samsung, DELL, LG and etc. You can search an electronic catalog by keywords. Find what you need and after make an order. 
 ## Technology Stack
@@ -12,13 +11,30 @@ is a website which provide opportunity to buy circuits and components for tvs. T
 * Webpack v4.12
 
 
-## Local deployment for development
+### Installing
 1. Install docker and docker-compose via executing build.sh script
 ```bash
 bash build.sh
 ```
-2. Run docker-compose to build and run containers for the application
+2. Add user to docker group to run commands without sudo
+```
+sudo usermod -aG docker $USER
+```
+3. Go to ```/telecircuit-manager``` install dependencies for frontend and run webpack
+
+```
+npm install; npm run dev
+```
+4. Run docker-compose to build and run containers for the application
 ```
 docker-compose up --build
 ```
-That's all. Now you are ready for developing. Happy coding :sunglasses:
+That's all. Now you are ready for developing. 
+
+## Authors
+
+* **FUNNYDMAN** - *Initial work* 
+
+See also the list of [contributors]() who participated in this project.
+
+Happy coding :sunglasses:
