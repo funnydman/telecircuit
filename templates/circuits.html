@@ -18,7 +18,7 @@
             <nav>
                 <ul>
                     <li>
-                        <a href="#">Samsung</a>
+                        <a href="{% url 'circuits-list' brand="samsung" %}">Samsung</a>
                     </li>
                     <li>
                         <a href="#">LG</a>
@@ -63,78 +63,20 @@
             </tr>
             </thead>
             <tbody>
+            {% for model in models %}
             <tr>
-                <td data-label="Модель">test</td>
-                <td data-label="Блок питания">test</td>
-                <td data-label="Main">test</td>
-                <td data-label="T-con">test</td>
-                <td data-label="X-main">test</td>
-                <td data-label="Y-main">test</td>
-                <td data-label="Logic">test</td>
-                <td data-label="Инвертор">test</td>
-                <td data-label="Y-scan">test</td>
-                <td data-label="Другое">test</td>
+                <td data-label="Модель">{{ model.model }}</td>
+                <td data-label="Блок питания">{{ model.power }}</td>
+                <td data-label="Main">{{ model.main }}</td>
+                <td data-label="T-con">{{ model.t_con }}</td>
+                <td data-label="X-main">{{ model.x_main }}</td>
+                <td data-label="Y-main">{{ model.y_main }}</td>
+                <td data-label="Logic">{{ model.logic }}</td>
+                <td data-label="Инвертор">{{ model.inverter }}</td>
+                <td data-label="Y-scan">{{ model.y_skan }}</td>
+                <td data-label="Другое">{{ model.other }}</td>
             </tr>
-            <tr>
-                <td data-label="Модель">test2</td>
-                <td data-label="Блок питания">test2</td>
-                <td data-label="Main">test2</td>
-                <td data-label="T-con">test2</td>
-                <td data-label="X-main">test2</td>
-                <td data-label="Y-main">test2</td>
-                <td data-label="Logic">test2</td>
-                <td data-label="Инвертор">test2</td>
-                <td data-label="Y-scan">test2</td>
-                <td data-label="Другое">test2</td>
-            </tr>
-            <tr>
-                <td data-label="Модель">test3</td>
-                <td data-label="Блок питания">test3</td>
-                <td data-label="Main">test3</td>
-                <td data-label="T-con">test3</td>
-                <td data-label="X-main">test3</td>
-                <td data-label="Y-main">test3</td>
-                <td data-label="Logic">test3</td>
-                <td data-label="Инвертор">test3</td>
-                <td data-label="Y-scan">test3</td>
-                <td data-label="Другое">test3</td>
-            </tr>
-            <tr>
-                <td data-label="Модель">test3</td>
-                <td data-label="Блок питания">test3</td>
-                <td data-label="Main">test3</td>
-                <td data-label="T-con">test3</td>
-                <td data-label="X-main">test3</td>
-                <td data-label="Y-main">test3</td>
-                <td data-label="Logic">test3</td>
-                <td data-label="Инвертор">test3</td>
-                <td data-label="Y-scan">test3</td>
-                <td data-label="Другое">test3</td>
-            </tr>
-            <tr>
-                <td data-label="Модель">test3</td>
-                <td data-label="Блок питания">test3</td>
-                <td data-label="Main">test3</td>
-                <td data-label="T-con">test3</td>
-                <td data-label="X-main">test3</td>
-                <td data-label="Y-main">test3</td>
-                <td data-label="Logic">test3</td>
-                <td data-label="Инвертор">test3</td>
-                <td data-label="Y-scan">test3</td>
-                <td data-label="Другое">test3</td>
-            </tr>
-            <tr>
-                <td data-label="Модель">test3</td>
-                <td data-label="Блок питания">test3</td>
-                <td data-label="Main">test3</td>
-                <td data-label="T-con">test3</td>
-                <td data-label="X-main">test3</td>
-                <td data-label="Y-main">test3</td>
-                <td data-label="Logic">test3</td>
-                <td data-label="Инвертор">test3</td>
-                <td data-label="Y-scan">test3</td>
-                <td data-label="Другое">test3</td>
-            </tr>
+            {% endfor %}
             </tbody>
         </table>
         <div class="row">
