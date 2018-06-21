@@ -1,0 +1,114 @@
+@import "vars"
+
+/*==========  Desktop First  ==========*/
+
+///* Large Devices, Wide Screens */
+//@media only screen and (max-width: 1200px)
+///**/
+//
+//
+///* Medium Devices, Desktops */
+//@media only screen and (max-width: 992px)
+///**/
+
+
+/* Small Devices, Tablets */
+@media only screen and (max-width: 768px)
+  .header-menu
+    a
+      font-size: 16px
+      margin-right: 2px
+  .about-service-item
+    p
+      text-align: left
+  table
+    background-color: #fff
+    border: 0
+  thead
+    display: none
+  tr
+    margin-bottom: 13px
+    display: block
+    &:after
+      content: ""
+      display: table
+      clear: both
+    &:before
+      display: block
+      border-bottom: 2px solid #ddd
+  td
+    box-sizing: border-box
+    display: block
+    float: left
+    clear: left
+    width: 100%
+    text-align: right !important
+    font-size: 13px
+    border-bottom: 1px dotted #ccc
+    &:last-child
+      border-bottom: 0
+    &:before
+      content: attr(data-label)
+      float: left
+      text-transform: uppercase
+      font-weight: bold
+
+@media only screen and (max-width: 568px)
+  .slicknav_menu
+    display: block
+  header
+    display: none
+
+/* Extra Small Devices, Phones */
+@media only screen and (max-width: 480px)
+  .search-form
+    input[name="search"]
+      width: 250px
+  .btn-action
+    font-size: 14px
+  .header-menu
+    a
+      font-size: 15px
+      margin-right: 0
+  .site-description-inner
+    h1
+      font-size: 26px
+    h2
+      font-size: 20px
+  .brands-line
+    img
+      max-width: 100%
+      height: auto
+      display: block
+
+///* Custom, iPhone Retina */
+//@media only screen and (max-width: 320px)
+///**/
+//
+//
+///*==========  Mobile First  ==========*/
+//
+///* Custom, iPhone Retina */
+//@media only screen and (min-width: 320px)
+///**/
+//
+//
+///* Extra Small Devices, Phones */
+//@media only screen and (min-width: 480px)
+///**/
+//
+//
+///* Small Devices, Tablets */
+//@media only screen and (min-width: 768px)
+///**/
+//
+//
+///* Medium Devices, Desktops */
+//@media only screen and (min-width: 992px)
+///**/
+//
+//
+///* Large Devices, Wide Screens */
+//@media only screen and (min-width: 1200px)
+///**/
+//

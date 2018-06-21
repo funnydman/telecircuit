@@ -1,0 +1,147 @@
+{% extends 'base.html' %}
+{% load staticfiles %}
+
+{% block index %}
+<section class="site-description">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-6 col-md-offset-3">
+                <div class="site-description-inner">
+                    <h1>Продажа плат к LCD и плазменным телевизорам</h1>
+                    <h2>по России и странам СНГ</h2>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <a href="#" class="btn-action">Перейти к платам</a>
+            </div>
+        </div>
+    </div>
+    <div class="arrow-down"></div>
+</section>
+<section class="about-service light-bg sect-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-4">
+                <div class="about-service-item">
+                    <img src="{% static 'service/break-tv-icon.png' %}"
+                         alt="broken tv img not found"
+                         class="hidden-sm hidden-xs">
+
+                    <p>Платы с разбитых LCD и плазменных
+                        телевизоров</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="about-service-item">
+                    <img
+                            src="{% static 'service/delivery-icon.png' %}"
+                            alt="delivery img not found"
+                            class="hidden-sm hidden-xs">
+                    <p>Отправка по Беларуси наложным платежом, по России и
+                        странам
+                        СНГ возможна по предоплате</p>
+                </div>
+            </div>
+            <div class="col-md-4 col-sm-4">
+                <div class="about-service-item">
+                    <img
+                            src="{% static 'service/check-icon.png' %}"
+                            alt="check img not found"
+                            class="hidden-sm hidden-xs">
+                    <p>Каждая плата проходит обязательную проверку перед
+                        оправкой</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="brands sect-padding text-center" id="brands">
+    <div class="container">
+        <h2>Большой ассортимент</h2>
+        <div class="brands-line">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <a href="#"><img alt="lg not found"
+                                     src="{% static 'brand-icons/lg.png' %}"
+                    ></a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <a href="#"><img
+                            alt="samsung not found"
+                            src="{% static 'brand-icons/samsung.png' %}"
+                    ></a>
+                </div>
+                <div class="col-md-4 col-sm-4 hidden-xs">
+                    <a href="#"><img
+                            alt="sony not found"
+                            src="{% static 'brand-icons/sony.png' %}"
+                    ></a>
+                </div>
+            </div>
+        </div>
+        <div class="brands-line">
+            <div class="row">
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <a href="#"><img alt="philips not found"
+                                     src="{% static 'brand-icons/philips.png' %}"
+                    ></a>
+                </div>
+                <div class="col-md-4 col-sm-4 col-xs-6">
+                    <a href="#"><img alt="panasonic not found"
+                                     src="{% static 'brand-icons/panasonic.png' %}"
+                    ></a>
+                </div>
+                <div class="col-md-4 col-sm-4 hidden-xs">
+                    <a href="#">
+                        <img alt="toshiba not found"
+                             src="{% static 'brand-icons/toshiba.png' %}"
+                        >
+                    </a>
+                </div>
+            </div>
+        </div>
+        <h3>и многие другие...</h3>
+    </div>
+</section>
+
+
+<section class="model-components light-bg sect-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-4 col-sm-6 col-xs-6">
+                <div class="model-components-block">
+                    <ul>
+                        <li><a href="#">БЛОК ПИТАНИЯ</a></li>
+                        <li><a href="#">MAIN</a></li>
+                        <li><a href="#">T-CON</a></li>
+                        <li><a href="#">X-MAIN</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-md-4 hidden-sm hidden-xs">
+                <img src="{% static 'tv.png' %}" alt="tv image not found"
+                     class="img-responsive">
+            </div>
+            <div class="col-md-4 col-sm-6 col-xs-6">
+                <div class="model-components-block">
+                    <ul>
+                        <li><a href="#">Y-MAIN</a></li>
+                        <li><a href="#">LOGIC</a></li>
+                        <li><a href="#">ИНВЕРТОР</a></li>
+                        <li><a href="#">Y-SCAN</a></li>
+                    </ul>
+                </div>
+            </div>
+
+        </div>
+        <div class="row">
+            <div class="text-center">
+                <a href="#" class="btn-action">Перейти к платам</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

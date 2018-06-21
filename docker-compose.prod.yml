@@ -1,0 +1,56 @@
+version: "3.1"
+services:
+  web:
+    container_name: web
+    tty: true
+    stdin_open: true
+    restart: always
+    build:
+      context: .
+      dockerfile: Dockerfile
+    entrypoint: bash deployment/production/entrypoint.sh
+    working_dir: /source
+    env_file:
+      - deployment/production/prod.env
+    environment:
+      - DJANGO_SETTINGS_MODULE=telecircuit.settings.prod
+    volumes:
+      - .:/source
+    ports:
+      - 8000:8000
+    depends_on:
+      - database
+      - frontend
+  database:
+    container_name: database
+    restart: always
+    image: postgres:10.1-alpine
+    env_file:
+      - deployment/production/prod.env
+    depends_on:
+      - frontend
+  webserver:
+    container_name: webserver
+    tty: true
+    build:
+      context: ./deployment/production/webserver
+      dockerfile: Dockerfile
+    ports:
+      - 80:80
+      - 443:443
+    volumes:
+      - ./static:/static
+    depends_on:
+      - web
+      - frontend
+  frontend:
+    container_name: frontend
+    tty: true
+    stdin_open: true
+    working_dir: /telecircuit-manager
+    build:
+      context: ./deployment/webpack
+      dockerfile: Dockerfile
+    volumes:
+      - ./telecircuit-manager:/telecircuit-manager
+    entrypoint: bash entrypoint.sh
