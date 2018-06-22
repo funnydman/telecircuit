@@ -19,7 +19,6 @@ def circuits(request):
 def get_circuits_list(request, brand):
     brand = apps.get_model('circuits', brand.title())
     models = brand.objects.all()
-
     query = request.GET.get("search")
     if query:
         models = get_queryset_from_one_model_search(brand, query)
@@ -36,4 +35,5 @@ def get_circuits_list(request, brand):
         models_per_page = paginator.page(paginator.num_pages)
 
     return render(request, 'circuits.html',
-                  {"models_per_page": models_per_page})
+                  {"models_per_page": models_per_page,
+                   "brand": str(brand.__name__)})
