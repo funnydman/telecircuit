@@ -15,12 +15,16 @@ def get_circuits_list(request, brand):
 
     page = request.GET.get('page')
     try:
-        items_per_page = paginator.page(page)
+        models_per_page = paginator.page(page)
     except PageNotAnInteger:
         # If page is not an integer, deliver first page.
-        items_per_page = paginator.page(1)
+        models_per_page = paginator.page(1)
     except EmptyPage:
         # If page is out of range (e.g. 9999), deliver last page of results.
-        items_per_page = paginator.page(paginator.num_pages)
+        models_per_page = paginator.page(paginator.num_pages)
 
-    return render(request, 'circuits.html', {"models": models, "items_per_page": items_per_page})
+    return render(request, 'circuits.html', {"models": models, "models_per_page": models_per_page})
+
+
+def get_query_set_from_search(request):
+    pass

@@ -1,11 +1,9 @@
 from django.contrib import admin
 
-from .models import Samsung, LG, Horizont, Vityaz, Philips, Toshiba, Sony, \
-    Panasonic, Dell
+from .models import Samsung, Lg, Horizont, Vityaz, Philips
 
 
-@admin.register(Samsung, LG, Horizont, Vityaz, Philips, Toshiba, Sony,
-                Panasonic, Dell)
+@admin.register(Samsung, Lg, Horizont, Vityaz, Philips)
 class InlineBrand(admin.ModelAdmin):
     list_display = (
         'model', 'power', 'main', 't_con', 'x_main', 'y_main', 'logic',

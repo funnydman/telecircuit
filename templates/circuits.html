@@ -6,12 +6,14 @@
             <div class="row">
                 <div class="col-md-4 col-md-offset-4">
                     <div class="search-form text-center">
-                        <input type="text"
-                               placeholder="Модель, t-con, x-main..."
-                               name="search">
-                        <button type="submit">
-                            <i class="fa fa-search"></i>
-                        </button>
+                        <form action="" method="GET">
+                            <input type="text"
+                                   placeholder="Модель, t-con, x-main..."
+                                   name="search">
+                            <button type="submit">
+                                <i class="fa fa-search"></i>
+                            </button>
+                        </form>
                     </div>
                 </div>
             </div>
@@ -22,28 +24,16 @@
                             <a href="{% url 'circuits-list' brand="samsung" %}">Samsung</a>
                         </li>
                         <li>
-                            <a href="#">LG</a>
+                            <a href="{% url 'circuits-list' brand="lg" %}">LG</a>
                         </li>
                         <li>
-                            <a href="#">Горизонт</a>
+                            <a href="{% url 'circuits-list' brand="horizont" %}">Горизонт</a>
                         </li>
                         <li>
-                            <a href="#">Витязь</a>
+                            <a href="{% url 'circuits-list' brand="vityaz" %}">Витязь</a>
                         </li>
                         <li>
-                            <a href="#">Philips</a>
-                        </li>
-                        <li>
-                            <a href="#">Toshiba</a>
-                        </li>
-                        <li>
-                            <a href="#">Sony</a>
-                        </li>
-                        <li>
-                            <a href="#">Panasonic</a>
-                        </li>
-                        <li>
-                            <a href="#">DELL</a>
+                            <a href="{% url 'circuits-list' brand="philips" %}">Philips</a>
                         </li>
                     </ul>
                 </nav>
@@ -64,34 +54,36 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% for model in items_per_page %}
-                    <tr>
-                        <td data-label="Модель">{{ model.model }}</td>
-                        <td data-label="Блок питания">{{ model.power }}</td>
-                        <td data-label="Main">{{ model.main }}</td>
-                        <td data-label="T-con">{{ model.t_con }}</td>
-                        <td data-label="X-main">{{ model.x_main }}</td>
-                        <td data-label="Y-main">{{ model.y_main }}</td>
-                        <td data-label="Logic">{{ model.logic }}</td>
-                        <td data-label="Инвертор">{{ model.inverter }}</td>
-                        <td data-label="Y-scan">{{ model.y_skan }}</td>
-                        <td data-label="Другое">{{ model.other }}</td>
-                    </tr>
-                {% endfor %}
+                {% if models_per_page %}
+                    {% for model in models_per_page %}
+                        <tr>
+                            <td data-label="Модель">{{ model.model }}</td>
+                            <td data-label="Блок питания">{{ model.power }}</td>
+                            <td data-label="Main">{{ model.main }}</td>
+                            <td data-label="T-con">{{ model.t_con }}</td>
+                            <td data-label="X-main">{{ model.x_main }}</td>
+                            <td data-label="Y-main">{{ model.y_main }}</td>
+                            <td data-label="Logic">{{ model.logic }}</td>
+                            <td data-label="Инвертор">{{ model.inverter }}</td>
+                            <td data-label="Y-scan">{{ model.y_skan }}</td>
+                            <td data-label="Другое">{{ model.other }}</td>
+                        </tr>
+                    {% endfor %}
+                {% endif %}
                 </tbody>
             </table>
             <div class="row">
-                {% if items_per_page.has_other_pages %}
+                {% if models_per_page.has_other_pages %}
                     <ul class="pagination">
-                        {% if items_per_page.has_previous %}
+                        {% if models_per_page.has_previous %}
                             <li>
-                                <a href="?page={{ items_per_page.previous_page_number }}">Prev</a>
+                                <a href="?page={{ models_per_page.previous_page_number }}">Prev</a>
                             </li>
                         {% else %}
                             <li class="disabled"><a href="#">Prev</a></li>
                         {% endif %}
-                        {% for i in items_per_page.paginator.page_range %}
-                            {% if items_per_page.number == i %}
+                        {% for i in models_per_page.paginator.page_range %}
+                            {% if models_per_page.number == i %}
                                 <li class="active">
                                     <a href="#">{{ i }}</a>
                                 </li>
@@ -99,9 +91,9 @@
                                 <li><a href="?page={{ i }}">{{ i }}</a></li>
                             {% endif %}
                         {% endfor %}
-                        {% if items_per_page.has_next %}
+                        {% if models_per_page.has_next %}
                             <li>
-                                <a href="?page={{ items_per_page.next_page_number }}">Next</a>
+                                <a href="?page={{ models_per_page.next_page_number }}">Next</a>
                             </li>
                         {% else %}
                             <li class="disabled"><a href="#">Next</a></li>
