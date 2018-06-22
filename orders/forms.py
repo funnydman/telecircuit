@@ -24,7 +24,7 @@ class ContactForm(forms.ModelForm):
         widgets = {
             'name': forms.TextInput(attrs={'placeholder': 'Ваше имя...'}),
             'email': forms.TextInput(
-                attrs={'placeholder': 'Email для связи...'}),
+                attrs={'placeholder': 'Email для связи...', 'type': 'email'}),
             'message': forms.Textarea(attrs={'cols': 40, 'rows': 3,
                                              'placeholder': 'Ваше сообщение...'})
 

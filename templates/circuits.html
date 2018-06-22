@@ -9,7 +9,7 @@
 
                         <form action="" method="GET">
                             <input type="text"
-                                   placeholder="{{ brand }}: Модель, t-con, main... "
+                                   placeholder="{{ brand }} Модель, t-con, main... "
                                    name="search">
                             <button type="submit">
                                 <i class="fa fa-search"></i>
@@ -115,13 +115,10 @@
 
                         <form method="POST" id="contact-form"
                               name="contact-form">
-                            <input type="text" placeholder="Ваше имя..."
-                                   name="name">
-                            <input type="email" placeholder="Ваш mail..."
-                                   name="email">
-                            <textarea name="message" cols="30"
-                                      rows="10"
-                                      placeholder="Сообщение..."></textarea>
+                            {% csrf_token %}
+                            {{ form.name }}
+                            {{ form.email }}
+                            {{ form.message }}
                             <input type="submit" class="btn-action"
                                    value="Отправить">
                         </form>

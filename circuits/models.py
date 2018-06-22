@@ -2,7 +2,7 @@ from django.db import models
 
 
 class Brand(models.Model):
-    model = models.CharField(max_length=250)
+    model = models.CharField(max_length=250, unique=True)
     power = models.CharField(max_length=250, blank=True)
     main = models.CharField(max_length=250, blank=True)
     t_con = models.CharField(max_length=250, blank=True)
