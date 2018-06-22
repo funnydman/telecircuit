@@ -54,22 +54,20 @@
                 </tr>
                 </thead>
                 <tbody>
-                {% if models_per_page %}
-                    {% for model in models_per_page %}
-                        <tr>
-                            <td data-label="Модель">{{ model.model }}</td>
-                            <td data-label="Блок питания">{{ model.power }}</td>
-                            <td data-label="Main">{{ model.main }}</td>
-                            <td data-label="T-con">{{ model.t_con }}</td>
-                            <td data-label="X-main">{{ model.x_main }}</td>
-                            <td data-label="Y-main">{{ model.y_main }}</td>
-                            <td data-label="Logic">{{ model.logic }}</td>
-                            <td data-label="Инвертор">{{ model.inverter }}</td>
-                            <td data-label="Y-scan">{{ model.y_skan }}</td>
-                            <td data-label="Другое">{{ model.other }}</td>
-                        </tr>
-                    {% endfor %}
-                {% endif %}
+                {% for model in models_per_page %}
+                    <tr>
+                        <td data-label="Модель">{{ model.model }}</td>
+                        <td data-label="Блок питания">{{ model.power }}</td>
+                        <td data-label="Main">{{ model.main }}</td>
+                        <td data-label="T-con">{{ model.t_con }}</td>
+                        <td data-label="X-main">{{ model.x_main }}</td>
+                        <td data-label="Y-main">{{ model.y_main }}</td>
+                        <td data-label="Logic">{{ model.logic }}</td>
+                        <td data-label="Инвертор">{{ model.inverter }}</td>
+                        <td data-label="Y-scan">{{ model.y_skan }}</td>
+                        <td data-label="Другое">{{ model.other }}</td>
+                    </tr>
+                {% endfor %}
                 </tbody>
             </table>
             <div class="row">
