@@ -18,13 +18,30 @@ def handle_order_form(request):
     return form
 
 
+def paginate(request, models, per_page):
+    paginator = Paginator(models, per_page)  # Show 5 pag_items per page
+
+    page = request.GET.get('page')
+    try:
+        models_per_page = paginator.page(page)
+    except PageNotAnInteger:
+        # If page is not an integer, deliver first page.
+        models_per_page = paginator.page(1)
+    except EmptyPage:
+        # If page is out of range (e.g. 9999), deliver last page of results.
+        models_per_page = paginator.page(paginator.num_pages)
+    return models_per_page
+
+
 def circuits(request):
     brands_list = [Samsung, Lg, Horizont, Vityaz, Philips]
     query = request.GET.get("search")
-    models_per_page = []
+    # if no brands selected displaying Samsung models
+    models = Samsung.objects.all()
     if query:
-        models_per_page = get_queryset_from_search(brands_list, query)
+        models = get_queryset_from_search(brands_list, query)
 
+    models_per_page = paginate(request, models, 5)
     form = handle_order_form(request)
     return render(request, 'circuits.html',
                   {"models_per_page": models_per_page, "form": form})
@@ -36,18 +53,8 @@ def get_circuits_list(request, brand):
     query = request.GET.get("search")
     if query:
         models = get_queryset_from_one_model_search(brand, query)
-    paginator = Paginator(models, 5)  # Show 5 pag_items per page
 
-    page = request.GET.get('page')
-    try:
-        models_per_page = paginator.page(page)
-    except PageNotAnInteger:
-        # If page is not an integer, deliver first page.
-        models_per_page = paginator.page(1)
-    except EmptyPage:
-        # If page is out of range (e.g. 9999), deliver last page of results.
-        models_per_page = paginator.page(paginator.num_pages)
-
+    models_per_page = paginate(request, models, 5)
     form = handle_order_form(request)
     return render(request, 'circuits.html',
                   {"models_per_page": models_per_page,
