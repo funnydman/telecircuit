@@ -3,7 +3,7 @@ from django import forms
 from .models import Order
 
 
-class ContactForm(forms.ModelForm):
+class OrderForm(forms.ModelForm):
     def clean_name(self):
         name = self.cleaned_data['name']
         if len(name) < 4:
