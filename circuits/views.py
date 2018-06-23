@@ -12,6 +12,7 @@ def handle_order_form(request):
         form = OrderForm(request.POST)
         if form.is_valid():
             form.save()
+            return
     else:
         form = OrderForm()
     return form
