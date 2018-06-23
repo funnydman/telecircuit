@@ -15,4 +15,15 @@ $(function () {
         $('html, body').animate({scrollTop: 0}, 800);
         return false;
     });
+    $('.model-components-list-header a').each(function () {
+        var location = window.location.href;
+        var link = this.href;
+        if (location == link) {
+            $(this).css({
+                'background': '#41508C',
+                'color': '#fff'
+            });
+        }
+    });
+
 });
