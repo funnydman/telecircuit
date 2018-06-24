@@ -2,7 +2,7 @@
 is a website which provide opportunity to buy circuits and components for tvs. Telecircuit contains much brands such as Samsung, DELL, LG and etc. You can search an electronic catalog by keywords. Find what you need and after make an order. 
 ## Technology Stack
 <p align="center"> 
-  <img src="https://preview.ibb.co/nQ08C8/dockerdjango_big.png">
+  <img src="docs/dockerdjango.png">
 </p>
 
 * Docker v17.04
@@ -43,7 +43,9 @@ That's all. Now you are ready for developing.
 
 1. Please follow first two steps in *Installing* section 
 
-2. Run docker-compose to build and run containers for the application
+2. Go to ```deployment/production``` rename file ```prod.env.sample``` to ```prod.env``` and set env variables.
+
+3. Run docker-compose to build and run containers for the application
 
  ```
  docker-compose -f docker-compose.prod.yml up --build
